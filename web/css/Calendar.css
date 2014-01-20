@@ -1,0 +1,74 @@
+table, tr, td {
+	border: 1px solid #d4e0ee;
+	border-collapse: collapse;
+	color:#555;
+	empty-cells:show;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+}
+table tr th {
+	background-color:#e6edf5;
+	empty-cells:show;
+	color:#0000CC
+}
+body, input, select, textarea {
+	color:#555;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	font-size:11px;
+}
+input[type="text"]{
+	border: 1px solid #0099FF;
+}
+input[type="password"]{
+	border: 1px solid #0099FF;
+}
+
+a.l_menu:hover {
+	background-color:#96B3DF;
+	color:#000000;
+	text-decoration:none;
+	display:block;
+
+}
+input.button {
+cursor:pointer
+}
+select {
+	color:#555;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	font-size:11px;
+	background-color:#FFFFFF;
+	border:1px solid #000000;
+}
+
+input.button {
+	border: 1px solid #0099FF;
+	color: #FFFFFF;
+	background-color: #006699;
+	font-weight:bold;
+}
+
+/*TD.label
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    WIDTH: 30px;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    HEIGHT: 16px;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center
+}*/
+A {
+    TEXT-DECORATION: none;
+}
+A:hover {
+color:#0099FF
+}
+A.cal
+{
+    TEXT-DECORATION: none;
+    COLOR: #000000
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	font-size:11px;
+}

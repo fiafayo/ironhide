@@ -1,0 +1,30 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           BaakMahasiswa
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              BaakMahasiswa
+    plural:                BaakMahasiswas
+    route_prefix:          baak_mahasiswa
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        peer_method: getMahasiswaBukanNonAktif
+        peer_count_method: getMahasiswaBukanNonAktifCount
+        object_actions:
+          _edit:
+            credentials: [none]
+          _delete:
+            credentials: [none]
+          _transkrip: ~
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

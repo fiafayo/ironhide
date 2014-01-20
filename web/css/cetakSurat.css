@@ -1,0 +1,40 @@
+li, p,td,th {
+           font-family: Georgia, "Times New Roman", serif;
+           font-size:   small;
+       }
+.noPrint {
+    display: none;
+}
+@page a4 {
+    size: A4;
+    margin: 0.5cm 0.5cm 0.5cm 0.5cm;
+}
+#tabel_matkul {
+    page: a4;
+    page-break-after: always;
+    margin: 0 0 0 0 ; 
+}
+
+#isi_surat {
+    page: a4;
+    page-break-after: always;
+    margin: 0 0 0 0 ; 
+}
+.jamCell {
+
+}
+thead {display: table-header-group;}
+table {
+  -fs-table-paginate: paginate;
+}
+.tanda_tangan_cell {
+    height: 1cm;
+} 
+.tabel_jadwal {
+    width: 95%;
+}
+#tabel_utuh {
+    page: a4;
+    margin: 0 0 0 0;
+    page-break-inside: avoid;
+}

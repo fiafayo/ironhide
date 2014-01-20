@@ -1,0 +1,47 @@
+eprocurement:
+  _attributes:
+    defaultIdMethod: native
+    noxsd: true
+    package: lib.model.eprocurement
+  peran_user:
+    _attributes: { phpName: PeranUser, description: 'Peran user' }
+    id: { type: INTEGER, required: true, primaryKey: true, description: 'ID' }
+    nama: { type: VARCHAR, size: 255,  required: true, description: Nama }
+    credential: { type: VARCHAR, size: 255,  required: true, description: 'Credential yang digunakan Symfony' }
+    state: { type: INTEGER, default: '0', description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }
+    _indexes:
+       
+      tipe_user_credential: [credential]
+    
+  application_user:
+    _attributes: { phpName: User, description: 'User dari pihak non penyedia' }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    peran_user_id: { type: INTEGER, required: true, description: 'Berisi data tipe user/hak akses userlogin', foreignTable: peran_user, foreignReference: id, onDelete: restrict }
+    instansi_id: { type: INTEGER, description: 'Instansi dari user', foreignTable: instansi, foreignReference: id, onDelete: restrict }
+    satuan_kerja_id: { type: INTEGER, description: 'Satuan kerja dari user', foreignTable: satuan_kerja, foreignReference: id, onDelete: restrict }
+    username: { type: VARCHAR, required: true, size: '64', description: Username }
+    nama: { type: VARCHAR, size: 255,  required: true, description: Nama }
+    default_password: { type: VARCHAR, size: 255,  description: 'Password default yang digunakan saat password direset' }
+    password: { type: VARCHAR, size: 255,  description: 'Password, dienkripsi secara one-way' }
+    telepon: { type: VARCHAR, size: 32,  description: 'Nomor telepon' }
+    alamat: { type: VARCHAR, size: 255,  description: Alamat }
+    email: { type: VARCHAR, size: 255,  description: 'Alamat email' }
+    public_key: { type: LONGVARCHAR, size: 255,  description: 'Public key untuk IKP' }
+    disabled: { type: BOOLEAN, description: 'Status aktif/non-aktif' }
+    alasan_disabled: { type: VARCHAR, size: 255,  description: 'Alasan non-aktif' }
+    state: { type: INTEGER, default: '0', description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }
+    _indexes:
+      appuser_pk: [id]
+      appuser_username: [username]
+      appuser_password: [password]
+      appuser_instansi_id: [instansi_id]
+      appuser_satuan_kerja_id: [satuan_kerja_id]
+      appuser_tipe_user_id: [peran_user_id]
+    _uniques:
+      appuser_unq: [id]
+      appuser_unq_username: [username]
+    

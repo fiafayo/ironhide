@@ -1,0 +1,33 @@
+eprocurement:
+  _attributes:
+    defaultIdMethod: native
+    noxsd: true
+    package: lib.model.eprocurement
+  informasi:
+    _attributes: { phpName: Informasi, description: Informasi }
+    id: { required: true, primaryKey: true, type: INTEGER, autoincrement: true, description: ID }
+    judul: { type: LONGVARCHAR, description: Judul, required: true }
+    tanggal: { type: DATE, description: Tanggal }
+    penulis: { type: LONGVARCHAR, description: Penulis, required: true }
+    isi: { type: LONGVARCHAR, description: Isi, required: true }
+    jenis: { type: TINYINT, description: 'Jenis;1 => Berita, 2 => Artikel, 3 => Gambar, 4 => Regulasi, 5 => Seminar, 6 => Template RKS, 7 => Laporan KKN' }
+    umum: { type: BOOLEAN, description: 'Status penanda bahwa informasi bisa dibaca oleh umum' }
+    instansi_id: { type: INTEGER, required: true, description: 'ID instansi', foreignTable: instansi, foreignReference: id, onDelete: restrict, default: 1 }
+    state: { type: INTEGER, description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }
+  informasi_user:
+    _attributes: { phpName: InformasiUser, description: 'Daftar user penerima informasi' }
+    informasi_id: { required: true, primaryKey: true, type: INTEGER, description: 'ID informasi', foreignTable: informasi, foreignReference: id, onDelete: cascade }
+    user_id: { required: true, primaryKey: true, type: INTEGER, description: 'ID informasi', foreignTable: peran_user, foreignReference: id, onDelete: cascade }
+  informasi_file:
+    _attributes: { phpName: InformasiFile, description: 'Daftar file attachment informasi' }
+    id: { required: true, primaryKey: true, type: INTEGER, autoincrement: true, description: ID }
+    informasi_id: { required: true, type: INTEGER, description: 'ID informasi', foreignTable: informasi, foreignReference: id, onDelete: restrict }
+    file_name:
+      required: true
+      type: VARCHAR
+      size: 255
+      description: 'Nama File'
+
+

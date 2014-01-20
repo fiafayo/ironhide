@@ -1,0 +1,32 @@
+eprocurement:
+  _attributes:
+    defaultIdMethod: native
+    noxsd: true
+    package: lib.model.eprocurement
+  kategori_instansi:
+    _attributes: { phpName: KategoriInstansi, description: 'Kategori instansi' }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    nama: { type: LONGVARCHAR, required: true, description: Nama }
+    state: { type: INTEGER, default: '0', description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }
+  instansi:
+    _attributes: { phpName: Instansi, description: Instansi }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    kategori_instansi_id: { type: INTEGER, required: true, description: 'ID kategori instansi', foreignTable: kategori_instansi, foreignReference: id, onDelete: restrict }
+    nama: { type: LONGVARCHAR, required: true, description: Nama }
+    state: { type: INTEGER, default: '0', description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }
+  satuan_kerja:
+    _attributes: { phpName: SatuanKerja, description: 'Satuan kerja dalam instansi yang melaksanakan pengadaan' }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    instansi_id: { type: INTEGER, required: true, description: 'ID instansi', foreignTable: instansi, foreignReference: id, onDelete: cascade }
+    kode: { type: LONGVARCHAR, required: true, description: Kode }
+    nama: { type: LONGVARCHAR, required: true, description: Nama }
+    alamat: { type: LONGVARCHAR, description: Alamat }
+    telepon: { type: LONGVARCHAR, description: 'Nomor telepon' }
+    email: { type: LONGVARCHAR, description: 'Alamat email' }
+    state: { type: INTEGER, default: '0', description: 'Status record' }
+    created_at: { type: TIMESTAMP, description: 'Waktu record dibuat' }
+    updated_at: { type: TIMESTAMP, description: 'Waktu record terakhir diubah' }

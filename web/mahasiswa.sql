@@ -1,0 +1,1 @@
+INSERT INTO tk_mhs(nrp,nama,ips,ipk,skskum,sksmax,status,password,jurusan) VALUES ('6001003','ARIA YOGA SATWIKA',1.190,1.885,39,16,'P','28-06-82','61-61')

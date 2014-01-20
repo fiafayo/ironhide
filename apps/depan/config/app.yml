@@ -1,0 +1,16 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  login_baak: 0
+  mahasiswa_boleh_login: 1
+  
+  penjadwalan:
+    AMBIL_DATA_PESERTA_KULIAH_DARI_BAAK: 0
+    MINIMUM_KURSI_KOSONG_UNTUK_PENEMPATAN: 5
+    MAKSIMUM_MATA_KULIAH_PER_RUANG: 4
+    MAKSIMUM_JUMLAH_JAGA_DOSEN: 4
+    MAKSIMUM_JUMLAH_JAGA_KARYAWAN: 8
+    
+  

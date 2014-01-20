@@ -1,0 +1,24 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Karyawan
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Karyawan
+    plural:                Karyawans
+    route_prefix:          karyawan
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Daftar Karyawan
+      filter:  ~
+      form:    ~
+      edit:
+        title: Update Data Karyawan
+      new:
+        title: Buat Data Karyawan Baru

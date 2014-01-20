@@ -1,0 +1,26 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           JadwalUjian
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              JadwalUjian
+    plural:                JadwalUjians
+    route_prefix:          jadwal_ujian_schedule_jadwal_ujian
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Jadwal Ujian
+        peer_method: doSelectJoinMataKuliah
+        display: [ kode_ujian, minggu, hari, jam, kode_mk, MataKuliah, jenis_ruang, jumlah_mhs ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Update Jadwal Ujian
+      new:
+        title: Buat Jadwal Ujian Baru

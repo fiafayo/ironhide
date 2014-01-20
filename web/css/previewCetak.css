@@ -1,0 +1,10 @@
+li, p,td,th {
+           font-family: Georgia, "Times New Roman", serif;
+           font-size:   small;
+}
+.tabel_jadwal {
+    width: 95%;
+}
+.tanda_tangan_cell {
+    height: 1cm;
+} 

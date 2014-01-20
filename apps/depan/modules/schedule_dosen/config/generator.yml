@@ -1,0 +1,24 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Dosen
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Dosen
+    plural:                Dosens
+    route_prefix:          dosen_schedule_dosen
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Daftar Dosen
+      filter:  ~
+      form:    ~
+      edit:
+        title: Update Data Dosen
+      new:
+        title: Buat Data Dosen Baru

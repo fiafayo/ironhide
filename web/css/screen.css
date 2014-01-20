@@ -1,0 +1,407 @@
+/* CSS Document */
+* {
+	color:#555;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+body {
+	font-size:11px;
+	margin:auto;
+	min-width:800px;
+	padding-left:5px;
+	padding-right:5px;
+	/*width:780px;*/
+}
+
+.hide {
+	display:none;
+}
+
+#page {
+	margin:auto;
+	min-width:780px;
+	padding:5px;
+	width:100%;
+}
+
+#header {
+	background:url("../images/header_bg.jpg");
+	border:0px;
+	height:93px;
+	text-align:center;
+	width:100%;
+}
+
+#page_controlling {
+  margin:auto;
+  min-width:780px;
+  padding:5px;
+  width:100%;
+}
+
+#header_controlling {
+  /*background:url("../images/header_bg.jpg");*/
+  border:0px;
+  height:128px;
+  text-align:center;
+  width:100%;
+}
+
+#header h1 {
+	color:#6da6e2;
+	font-size:32px;
+	margin:0px 4px;
+}
+
+#header p { 
+	color:#999999;
+	font-size:16px;
+	margin:20px inherit;
+	margin-left:30px;
+}
+
+/*** MENU STYLE ***/
+#menu {
+	padding:0;
+	text-align:center;
+}
+
+#menu div {
+	background:url("../images/menu_bg.gif");
+	height:25px;
+	line-height:normal;
+	list-style-type:none;
+	margin:auto;
+	padding-top: 8px;
+	text-align:center;
+}
+
+#menu div span {
+	display:inline;
+	white-space:nowrap;
+	margin:0;
+}
+
+#menu div span a {
+	padding-bottom: 8px;
+	padding-left:10px;
+	padding-right:10px;	/* short-hand padding attribute would overwrite top/bottom padding set in a previous rule */
+	padding-top: 8px;
+	white-space:nowrap;
+}
+
+#menu div span a.leftmost {
+	margin-left:0px;
+}
+
+#menu div span a:hover {
+	background-color:#43BEC5;
+}
+
+#menu div span a {
+	color:#333;
+	text-decoration:none;
+}
+
+#menu p {
+	margin:3px;
+	float:right;
+}
+
+#content {
+ border: 1px solid #4C5EFF;
+ padding:5px;
+ text-align:left;
+ min-width: 760px;
+}
+
+#content #selector {
+	padding:0px;
+}
+
+#content #selector dl dd, #content #selector dl dt {
+	padding:0px;
+}
+
+#content #selector dl dd {
+}
+
+#content p.fatal {
+	color:red;
+	font-weight:bold;
+}
+
+#content p.error {
+	color:red;
+}
+
+#content p.notice {
+	color:blue;
+}
+
+#content ul.fatal {
+	color:red;
+	font-weight:bold;
+}
+
+#content ul.error {
+	color:red;
+}
+
+#content ul.notice {
+	color:blue;
+}
+
+#footer {
+	color:#333;
+	border-top:10px solid #2763a5;
+	text-align:center;
+}
+
+#footer p {
+	margin:5px auto;
+	padding:0px;
+}
+
+form {
+	padding:5px;
+}
+
+dl {
+	padding:0px;
+}
+
+dl dt, dl dd {
+	padding:3px 0px;
+}
+
+dl dt {
+	clear:left;
+	float:left;
+	font-weight:bold;
+	padding:3px 0px;
+	padding-right:10px;
+	text-align:right;
+	width:120px;
+}
+
+dl dd {
+	height:25px;
+	margin-left:0px;
+}
+
+table, tr, td {
+	border:none;
+}
+
+table.data {
+	border: 1px solid #d4e0ee;
+	border-collapse: collapse;
+	page-break-inside:avoid;
+	empty-cells:show;
+}
+
+table.data tr th, table.data tr td {
+	border: 1px solid #d4e0ee;
+	border-collapse: collapse;
+	color:#555;
+	page-break-inside:avoid;
+	empty-cells:show;
+}
+
+table.data tr th, table.data tr td {
+	padding:2px 3px;
+	page-break-inside:avoid;
+	
+}
+
+table.data tr th {
+	background-color:#e6edf5;
+	empty-cells:show;
+}
+
+table.data tr td {
+	empty-cells:show;
+	vertical-align:top;
+}
+
+table.data tr td.h1 {
+	font-weight:bold;
+}
+
+table.data tr td.h2 {
+	font-style:italic;
+}
+
+table.data tr td.h3 {
+}
+
+table.data tr td.ident {
+	padding-left:20px;
+}
+
+table.data tr td.important {
+	color:#669933;
+	font-style:italic;
+	text-align:right;
+}
+
+table.data tr th.number {
+	width:100px;
+}
+
+table.data tr td.number {
+	text-align:right;
+	width:100px;
+}
+
+table.data tr td.number_red {
+	color:red;
+	text-align:right;
+	width:100px;
+}
+
+table.data tr td.number_shaded {
+	background-color:#eee;
+	text-align:right;
+	width:100px;
+}
+
+table.data tr th.percentage {
+	width:45px;
+}
+
+table.data tr td.percentage {
+	text-align:right;
+	width:45px;
+}
+
+table.data tr td.percentage_shaded {
+	background-color:#eee;
+	text-align:right;
+	width:45px;
+}
+
+table.data tr td.form {
+	text-align:center;
+}
+
+table.data tr td.nav {
+	text-align:center;
+}
+
+table.data tfoot tr td {
+	background-color:#e6edf5;
+	font-weight:bold;
+}
+
+/*
+input:focus, select:focus, textarea:focus {
+	background-color:#75a4d2;
+}
+*/
+
+/*
+table, tr, td {
+	border: 1px solid #d4e0ee;
+	border-collapse: collapse;
+	color:#555;
+	page-break-inside:avoid;
+	empty-cells:show;
+}
+
+table th, td {
+	padding:2px 3px;
+	page-break-inside:avoid;
+	
+}
+
+table tr th {
+	background-color:#e6edf5;
+	empty-cells:show;
+}
+
+table tr td {
+	empty-cells:show;
+	vertical-align:top;
+}
+
+table tr td.h1 {
+	font-weight:bold;
+}
+
+table tr td.h2 {
+	font-style:italic;
+}
+
+table tr td.h3 {
+}
+
+table tr td.ident {
+	padding-left:20px;
+}
+
+table tr td.important {
+	color:#669933;
+	font-style:italic;
+	text-align:right;
+}
+
+table tr th.number {
+	width:100px;
+}
+
+table tr td.number {
+	text-align:right;
+	width:100px;
+}
+
+table tr th.percentage {
+	width:45px;
+}
+
+table tr td.percentage {
+	text-align:right;
+	width:45px;
+}
+
+table tr td.form {
+	text-align:center;
+}
+
+table tr td.nav {
+	text-align:center;
+}
+
+table tfoot tr td {
+	background-color:#e6edf5;
+	font-weight:bold;
+}
+*/
+/*
+input:focus, select:focus, textarea:focus {
+	background-color:#75a4d2;
+}
+*/
+
+input.date, select.date, textarea.date {
+	width:65px;
+}
+
+input.number, select.number, textarea.number {
+	text-align:right;
+}
+
+input.percentage {
+	text-align:right;
+	width:40px;
+}
+
+a.nav {
+	display:block;
+	padding:5px 0px;
+}
+
+#loginPanel {
+  
+}

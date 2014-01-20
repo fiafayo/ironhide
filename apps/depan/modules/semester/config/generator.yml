@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           TahunSemester
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TahunSemester
+    plural:                TahunSemesters
+    route_prefix:          tahun_semester
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

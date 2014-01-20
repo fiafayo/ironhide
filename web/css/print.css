@@ -1,0 +1,36 @@
+/* CSS Document */
+@page {
+	size:landscape;
+	margin-left:1px;
+	margin-right:1px;
+}
+
+body {
+	zoom: 50%
+}
+
+.not_printed {
+	display:none;
+}
+
+a {
+	text-decoration:none;
+	color:#000;
+}
+
+a.nav {
+	display:none;
+}
+
+#header, #menu, #button_print, #row_nav, #footer, #copyright {
+    display:none;
+}
+
+input {
+	display:none;
+}
+
+body {
+	margin-left:1px;
+	size:landscape;
+}

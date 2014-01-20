@@ -1,0 +1,42 @@
+.krs_05 {
+    background-image:url('../images/krs_05.png');
+    
+}
+.krs_02 {
+    background-image:url('../images/krs_02.png');
+    padding: 4px;
+    text-align:right;
+}
+#login_form
+{
+  border:2px inset;
+  text-align:left;
+  width:200px;
+  padding:8px;
+  margin-left: 20px;
+}
+
+#login_form h3
+{
+ background-color:#59C5FF;
+ margin:0px;
+ text-align:center;
+}
+
+.form-error-msg{
+  color:red;
+}
+#flash{
+  border:2px ridge;
+  background-color: #A7E5FF;
+  padding: 4px;
+  margin: 4px;
+  color: #081E9A;
+}
+#error{
+  border:2px ridge;
+  background-color: #FFA3B7;
+  padding: 4px;
+  margin: 4px;
+  color: #081E9A;
+}

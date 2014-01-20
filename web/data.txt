@@ -1,0 +1,3 @@
+NRP, NAMA, IPS, IPK
+61158, sholeh, 2.45, 3.45
+

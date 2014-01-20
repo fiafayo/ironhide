@@ -1,0 +1,7 @@
+ganti_jurusan:
+  is_secure: on
+  credentials: [[ admin, administrator, paj ]]
+
+all:
+  is_secure: off
+  

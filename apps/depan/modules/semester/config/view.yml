@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Perwalian FT-UBAYA :: Semester
+    description:  Perwalian Fakultas Teknik Ubaya
+    keywords:     perwalian, teknik, ubaya
+    language:     en
+    robots:       index, follow
+
+
+  stylesheets:    [ /templates/colourful/css/blue.css, /templates/colourful/css/template.css,  /sfPropelPlugin/css/default.css, /sfPropelPlugin/css/global.css]
+  javascripts:    [ ]
+
+  has_layout:     true
+  layout:         colourful

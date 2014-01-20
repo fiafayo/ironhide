@@ -1,0 +1,34 @@
+baak:
+  _attributes:
+    defaultIdMethod: native
+    noxsd: true
+    package: lib.model.baak
+  Mahasiswa:
+    _attributes: { phpName: 'BaakMahasiswa', description: 'Data Mahasiswa di BAAK' }
+    'NRP': { type: VARCHAR, size: 12, phpName: 'NRP', required: true, primaryKey: true }
+    'Pin': { type: VARCHAR, size: 125, phpName: 'Pin', required: true  }
+    'Nama': { type: VARCHAR, size: 40, phpName: 'Nama', required: true }
+    'KodeStatus': { type: VARCHAR, size: 3, phpName: 'KodeStatus', required: true }
+    'IPKDenganE': { type: FLOAT, phpName: 'IPKDenganE', required: true }
+    'IPKTanpaE': { type: FLOAT, phpName: 'IPKTanpaE', required: true }
+    'IPSAkhir': { type: FLOAT, phpName: 'IPSAkhir', required: true }
+    'SksMaxDepan': { type: SMALLINT, phpName: 'SksMaxDepan', required: true }
+    'SKSKumTanpaE': { type: SMALLINT, phpName: 'SKSKumTanpaE', required: true }
+ 
+
+  MhsTranskrip:
+    _attributes: { phpName: 'MhsTranskrip', description: 'Transkrip Mahasiswa di BAAK' }
+    'NRP': { type: VARCHAR, size: 12, phpName: 'Nrp', required: true, primaryKey: true, foreignTable: 'Mahasiswa', foreignReference: 'NRP' }
+    'KodeMK': { type: VARCHAR, size: 12, phpName: 'KodeMK', required: true, primaryKey: true }
+    'ThnAkademik': { type: VARCHAR, size: 12, phpName: 'ThnAkademik', required: true, primaryKey: true }
+    'Semester': { type: VARCHAR, size: 12, phpName: 'Semester', required: true, primaryKey: true }
+    'KodeNisbi': { type: VARCHAR, size: 3, phpName: 'KodeNisbi', required: true, primaryKey: false }
+ 
+
+  MhsAmbilMK:
+    _attributes: { phpName: 'BaakMahasiswaAmbilMK', description: 'Data Mahasiswa di BAAK yang ambil MK' }
+    'NRP': { type: VARCHAR, size: 12, phpName: 'NRP', required: true, primaryKey: true }
+    'KodeMKBuka': { type: VARCHAR, size: 12, phpName: 'KodeMKBuka', required: true, primaryKey: true }
+    'KP': { type: VARCHAR, size: 12, phpName: 'KP', required: true, primaryKey: false   }
+    'KodeNisbi': { type: VARCHAR, size: 3, phpName: 'KodeNisbi', required: false, primaryKey: false }
+

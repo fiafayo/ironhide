@@ -1,0 +1,354 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: informasi, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+penjadwalan_ujian:
+  url: /penjadwalan_ujian/:action
+  param: { module: penjadwalan_ujian }
+
+konversi:
+  class: sfPropelRouteCollection
+  options:
+    model:                KonversiMk
+    module:               konversi_mk
+    prefix_path:          /konversi_mk
+    column:               id
+    with_wildcard_routes: true
+
+baak_mahasiswa:
+  class: sfPropelRouteCollection
+  options:
+    model:                BaakMahasiswa
+    module:               baak_mahasiswa
+    prefix_path:          /baak_mahasiswa
+    column:               NRP
+    with_wildcard_routes: true
+
+user_log:
+  class: sfPropelRouteCollection
+  options:
+    model:                UserLog
+    module:               user_log
+    prefix_path:          /user_log
+    column:               id
+    with_wildcard_routes: true
+
+kelas_mk:
+  class: sfPropelRouteCollection
+  options:
+    model:                KelasMK
+    module:               kelas_mk
+    prefix_path:          /kelas_mk
+    column:               kode_kelas
+    with_wildcard_routes: true
+ 
+
+schedule_jadwal_ruang_mk:
+  url: /schedule_jadwal_ruang_mk
+  param: { module: schedule_jadwal_ruang_mk, action: index }
+
+jadwal_ruang_mk:
+  class: sfPropelRouteCollection
+  options:
+    model:                JadwalRuangMk
+    module:               schedule_jadwal_ruang_mk
+    prefix_path:          /schedule_jadwal_ruang_mk
+    column:               id
+    with_wildcard_routes: true
+
+
+schedule_jadwal_ruang:
+  url: /schedule_jadwal_ruang
+  param: { module: schedule_jadwal_ruang, action: index }
+  
+jadwal_ruang_schedule_jadwal_ruang:
+  class: sfPropelRouteCollection
+  options:
+    model:                JadwalRuang
+    module:               schedule_jadwal_ruang
+    prefix_path:          /schedule_jadwal_ruang
+    column:               id
+    with_wildcard_routes: true
+
+ 
+
+karyawan:
+  class: sfPropelRouteCollection
+  options:
+    model:                Karyawan
+    module:               schedule_karyawan
+    prefix_path:          /schedule_karyawan
+    column:               kode_karyawan
+    with_wildcard_routes: true
+schedule_karyawan:
+  class: sfPropelRouteCollection
+  options:
+    model:                Karyawan
+    module:               schedule_karyawan
+    prefix_path:          /schedule_karyawan
+    column:               kode_karyawan
+    with_wildcard_routes: true
+
+dosen_schedule_dosen:
+  class: sfPropelRouteCollection
+  options:
+    model:                Dosen
+    module:               schedule_dosen
+    prefix_path:          /schedule_dosen
+    column:               kode_dosen
+    with_wildcard_routes: true
+schedule_dosen:
+  class: sfPropelRouteCollection
+  options:
+    model:                Dosen
+    module:               schedule_dosen
+    prefix_path:          /schedule_dosen
+    column:               kode_dosen
+    with_wildcard_routes: true
+
+ruang:
+  class: sfPropelRouteCollection
+  options:
+    model:                Ruang
+    module:               schedule_ruang
+    prefix_path:          /schedule_ruang
+    column:               kode_ruang
+    with_wildcard_routes: true
+schedule_ruang:
+  class: sfPropelRouteCollection
+  options:
+    model:                Ruang
+    module:               schedule_ruang
+    prefix_path:          /schedule_ruang
+    column:               kode_ruang
+    with_wildcard_routes: true
+
+#ruang:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               schedule_ruang
+#    prefix_path:          /schedule_ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+#schedule_ruang:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               schedule_ruang
+#    prefix_path:          /schedule_ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+#schedule_ruang:
+#  url: /schedule_ruang
+#  param: { module: schedule_ruang, action: index }
+#schedule_ruang_edit:
+#  url: /schedule_ruang_edit
+#  param: { module: schedule_ruang, action: edit }
+#schedule_ruang_delete:
+#  url: /schedule_ruang_delete
+#  param: { module: schedule_ruang, action: delete }
+#schedule_ruang_update:
+#  url: /schedule_ruang_update
+#  param: { module: schedule_ruang, action: update }
+#schedule_ruang_new:
+#  url: /schedule_ruang_new
+#  param: { module: schedule_ruang, action: new }
+#schedule_ruang_create:
+#  url: /schedule_ruang_create
+#  param: { module: schedule_ruang, action: create }
+#
+#
+#schedule_ruang_collection:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               schedule_ruang
+#    prefix_path:          /schedule_ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+#
+#
+#ruang_schedule_ruang:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               schedule_ruang
+#    prefix_path:          /schedule_ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+#
+#ruang_schedule_ruang_collection:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               schedule_ruang
+#    prefix_path:          /schedule_ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+
+schedule_jadwal_ujian:
+  url: /schedule_jadwal_ujian
+  param: { module: schedule_jadwal_ujian, action: index }
+
+jadwal_ujian_schedule_jadwal_ujian:
+  class: sfPropelRouteCollection
+  options:
+    model:                JadwalUjian
+    module:               schedule_jadwal_ujian
+    prefix_path:          /schedule_jadwal_ujian
+    column:               kode_ujian
+    with_wildcard_routes: true
+
+jadwal_ujian_schedule_jadwal_ujian_collection:
+  class: sfPropelRouteCollection
+  options:
+    model:                JadwalUjian
+    module:               jadwal_ujian_admin
+    prefix_path:          /jadwal_ujian_admin
+    column:               kode_ujian
+    with_wildcard_routes: true
+
+
+dosen:
+  class: sfPropelRouteCollection
+  options:
+    model:                Dosen
+    module:               dosen
+    prefix_path:          /dosen
+    column:               kode_dosen
+    with_wildcard_routes: true
+
+jadwal_ujian_collection:
+  class: sfPropelRouteCollection
+  options:
+    model:                JadwalUjian
+    module:               jadwal_ujian_admin
+    prefix_path:          /jadwal_ujian_admin
+    column:               kode_ujian
+    with_wildcard_routes: true
+
+
+tahun_semester:
+  class: sfPropelRouteCollection
+  options:
+    model:                TahunSemester
+    module:               semester
+    prefix_path:          /semester
+    column:               kode
+    with_wildcard_routes: true
+
+#ruang:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                Ruang
+#    module:               ruang
+#    prefix_path:          /ruang
+#    column:               kode_ruang
+#    with_wildcard_routes: true
+
+informasi:
+  class: sfPropelRouteCollection
+  options:
+    model:                Informasi
+    module:               berita
+    prefix_path:          /berita
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+
+depan:
+  class: sfPropelRouteCollection
+  options:
+    model:                Informasi
+    module:               depan
+    prefix_path:          /depan
+    column:               id
+    with_wildcard_routes: true
+
+
+berita:
+  class: sfPropelRouteCollection
+  options:
+    model:                Informasi
+    module:               berita
+    prefix_path:          /berita
+    column:               id
+    with_wildcard_routes: true
+# jadwal:
+#  class: sfPropelRouteCollection
+#  options:
+#    model:                JadwalKuliah
+#    module:               jadwal
+#    prefix_path:          /jadwal
+#    column:               kode_jadwal
+#    with_wildcard_routes: true
+
+jadwal_ruang:
+  url: /jadwal_ruang
+  param: { module: jadwal_ruang, action: index }
+toefl:
+  url: /toefl
+  param: { module: toefl, action: index }
+advisor:
+  url: /advisor
+  param: { module: advisor, action: index }
+ganti_jurusan:
+  url: /ganti_jurusan
+  param: { module: ganti_jurusan, action: index }
+
+semester:
+  url: /semester/:action
+  param: { module: semester }
+jadwal:
+  url: /jadwal
+  param: { module: jadwal, action: index }
+jadwal_ujian:
+  url: /jadwal_ujian
+  param: { module: jadwal_ujian, action: index }
+jadwal_ujian_edit:
+  url: /jadwal_ujian_edit
+  param: { module: jadwal_ujian_admin, action: edit }
+jadwal_ujian_delete:
+  url: /jadwal_ujian_delete
+  param: { module: jadwal_ujian_admin, action: delete }
+jadwal_ujian_new:
+  url: /jadwal_ujian_new
+  param: { module: jadwal_ujian_admin, action: new }
+jadwal_ujian_admin:
+  url: /jadwal_ujian_admin
+  param: { module: jadwal_ujian_admin, action: index }
+transkrip:
+  url: /transkrip/:action
+  param: { module: transkrip }
+pendaftar:
+  url: /pendaftar/:action
+  param: { module: pendaftar }
+login:
+  url:          /login
+  param: { module: depan, action: login }
+logout:
+  url:          /logout
+  param: { module: depan, action: logout }
+change_password:
+  url:          /change_password
+  param: { module: depan, action: change_password }
+
+
+kaskus:
+  url: /kaskus/:action
+  param: { module: kaskus }
+

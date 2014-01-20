@@ -1,0 +1,291 @@
+propel:
+  _attributes:
+    defaultIdMethod: native
+    package: lib.model.perwalian_ft
+  tk_admin:
+    _attributes: { phpName: Admin }
+    nik: { type: VARCHAR, size: '20', required: true, primaryKey: true, description: NIK }
+    nama: { type: VARCHAR, size: '100' }
+    kode_jur: { type: VARCHAR, size: '5', foreignTable: tk_jurusan, foreignReference: kode_jur, onDelete: restrict }
+    password: { type: VARCHAR, size: '255' }
+    jabatan: { type: VARCHAR, size: '20' }
+  tk_daftar_kls:
+    _attributes: { phpName: DaftarKelas }
+    kode_fpp: { type: VARCHAR, size: '20', required: true, primaryKey: true, foreignTable: tk_fpp, foreignReference: kode_fpp, onDelete: restrict }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, primaryKey: true, foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    status: { type: VARCHAR, size: '2' }
+
+  lulus_toefl:
+    _attributes: { phpName: LulusToefl }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    lulus: { type: INTEGER }
+  
+
+  tk_dosen:
+    _attributes: { phpName: Dosen }
+    kode_dosen: { type: VARCHAR, size: '8', required: true, primaryKey: true }
+    nama: { type: VARCHAR, size: '20', required: true }
+    status: { type: VARCHAR, size: '2' }
+    kode_jur: { type: VARCHAR, size: '5', foreignTable: tk_jurusan, foreignReference: kode_jur, onDelete: restrict }
+    is_pengawas: { type: BOOLEAN, default: true }
+    npk: { type: VARCHAR, size: '8', required: true }
+    _indexes:
+      tk_dosen_npk: [npk]
+
+
+  tk_dsn_kls:
+    _attributes: { phpName: DosenKelas }
+    kode_dosen: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_dosen, foreignReference: kode_dosen, onDelete: restrict }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, primaryKey: true, foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+  tk_fpp:
+    _attributes: { phpName: FPP }
+    kode_fpp: { type: VARCHAR, size: '20', required: true, primaryKey: true }
+    jenis: { type: VARCHAR, size: '20' }
+    semester: { type: VARCHAR, size: '5' }
+    tahun: { type: VARCHAR, size: '9' }
+    waktu_buka: { type: TIMESTAMP }
+    waktu_tutup: { type: TIMESTAMP }
+    status_aktif: { type: VARCHAR, size: '2' }
+  tk_jadwal_ujian:
+    _attributes: { phpName: JadwalUjian }
+    kode_ujian: { type: VARCHAR, size: '20', required: true, primaryKey: true }
+    kode_mk: { type: VARCHAR, size: '10', required: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    hari: { type: INTEGER, default: '0', required: true }
+    jam: { type: INTEGER, default: '0', required: true }
+    minggu: { type: INTEGER, default: '0', required: true }
+    semester: { type: VARCHAR, size: '5', required: true }
+    tahun: { type: VARCHAR, size: '9', required: true }
+    jenis_ruang: { type: VARCHAR, size: '6', required: true, default: 'KELAS' }
+    jumlah_mhs: { type: INTEGER, default: '0', required: true }
+    jenis_ujian: { type: VARCHAR, size: '6', required: false, default: 'KELAS' }
+    prioritas_ruang: { type: VARCHAR, size: '10', required: false  }
+
+  tk_jadwal_kul:
+    _attributes: { phpName: JadwalKuliah }
+    kode_jadwal: { type: VARCHAR, size: '20', required: true, primaryKey: true }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    kode_ruang: { type: VARCHAR, size: '10', required: true, foreignTable: tk_ruang, foreignReference: kode_ruang, onDelete: restrict }
+    jam_masuk: { type: VARCHAR, size: '5' }
+    jam_keluar: { type: VARCHAR, size: '5' }
+    hari: { type: INTEGER, default: '0' }
+  tk_jurusan:
+    _attributes: { phpName: Jurusan }
+    kode_jur: { type: VARCHAR, size: '5', required: true, primaryKey: true }
+    nama: { type: VARCHAR, size: '120', required: true }
+  tk_kelas_mk:
+    _attributes: { phpName: KelasMK }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, primaryKey: true }
+    kode_mk: { type: VARCHAR, size: '10', required: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    kp: { type: VARCHAR, size: '9', required: true, default: '-' }
+    isi: { type: INTEGER, default: '0' }
+    kapasitas: { type: INTEGER, default: '0' }
+    semester: { type: VARCHAR, size: '5' }
+    tahun: { type: VARCHAR, size: '9' }
+    status_buka: { type: BOOLEAN, default: '0' }
+    dmb: { type: BOOLEAN, default: '0' }
+    waktu_buka: { type: TIMESTAMP }
+  tk_kk:
+    _attributes: { phpName: KK }
+    kode_fpp: { type: VARCHAR, size: '20', required: true, primaryKey: true }
+    jwd_kul: { type: VARCHAR, size: '1' }
+    jwd_ujian: { type: VARCHAR, size: '1' }
+    mk_p: { type: VARCHAR, size: '1' }
+  tk_kls_jur:
+    _attributes: { phpName: KelasJurusan }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, primaryKey: true, foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    kode_jur: { type: VARCHAR, size: '5', required: true, primaryKey: true, foreignTable: tk_jurusan, foreignReference: kode_jur, onDelete: restrict }
+  tk_master_mk:
+    _attributes: { phpName: MataKuliah }
+    kode_mk: { type: VARCHAR, size: '10', required: true, primaryKey: true }
+    nama: { type: VARCHAR, size: '60', required: true }
+    sks: { type: INTEGER, default: '0' }
+  tk_mhs:
+    _attributes: { phpName: Mahasiswa }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true }
+    sksmax: { type: INTEGER, default: '0' }
+    ips: { type: DOUBLE, default: '0' }
+    status: { type: VARCHAR, size: '2' }
+    jurusan: { type: VARCHAR, size: '5' }
+    nama: { type: VARCHAR, size: '60', required: true }
+    alamat: { type: VARCHAR, size: '60', required: true }
+    tgllahir: { type: DATE }
+    tmplahir: { type: VARCHAR, size: '20' }
+    totbss: { type: INTEGER, default: '0' }
+    ipk: { type: DOUBLE, default: '0' }
+    skskum: { type: INTEGER, default: '0' }
+    telepon: { type: VARCHAR, size: '20' }
+    password: { type: VARCHAR, size: '20' }
+    angkatan: { type: VARCHAR, size: '5' }
+    namasma: { type: VARCHAR, size: '20' }
+    namaortu: { type: VARCHAR, size: '20' }
+    kelamin: { type: VARCHAR, size: '1' }
+    asisten: { type: BOOLEAN, default: '0' }
+    konsultasi: { type: BOOLEAN, default: '0' }
+    aa: { type: BOOLEAN, default: '0' }
+    _indexes:
+      mhs_jurusan: [jurusan]
+      mhs_status: [status]
+
+  tk_mk_jur:
+    _attributes: { phpName: MataKuliahJurusan }
+    kode_mk: { type: VARCHAR, size: '10', required: true, primaryKey: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    kode_jur: { type: VARCHAR, size: '5', required: true, primaryKey: true, foreignTable: tk_jurusan, foreignReference: kode_jur, onDelete: restrict }
+    jenis: { type: VARCHAR, size: '20', default: '0' }
+    status_bebas: { type: BOOLEAN, default: '0' }
+    semester: { type: INTEGER, default: '0' }
+    sks_min: { type: INTEGER, default: '0' }
+    kurikulum: { type: VARCHAR, size: '5' }
+  tk_prioritas:
+    _attributes: { phpName: Prioritas }
+    kode_prioritas: { type: INTEGER, autoIncrement: true, required: true, primaryKey: true }
+    kode_fpp: { type: VARCHAR, size: '20', required: true }
+    nama: { type: VARCHAR, size: '100' }
+    prioritas: { type: INTEGER, default: '10' }
+  tk_ruang:
+    _attributes: { phpName: Ruang }
+    kode_ruang: { type: VARCHAR, size: '10', required: true, primaryKey: true }
+    kapasitas: { type: INTEGER, default: '20', required: true }
+    jenis: { type: VARCHAR, size: '20', required: true }
+    kapasitas_ujian: { type: INTEGER, default: '20', required: true }
+    prioritas: { type: INTEGER, default: '20', required: true }
+    untuk_ujian: { type: BOOLEAN, default: false, required: true }
+    _indexes:
+      ruang_jenis: [jenis]
+      ruang_prioritas: [prioritas]
+  tk_setting_nrp:
+    _attributes: { phpName: SettingNrp }
+    id: { type: VARCHAR, size: '5', required: true, primaryKey: true }
+    kode_kelas: { type: VARCHAR, size: '20', required: true, primaryKey: true, foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    nrp_awal: { type: VARCHAR, size: '8' }
+    nrp_akhir: { type: VARCHAR, size: '8' }
+  tk_tambah_sks:
+    _attributes: { phpName: TambahSKS }
+    id: { type: VARCHAR, size: '5', required: true, primaryKey: true }
+    nrp: { type: VARCHAR, size: '8', foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    jml_sks: { type: INTEGER, default: '0' }
+    keterangan: { type: LONGVARCHAR }
+    semester: { type: VARCHAR, size: '5' }
+    tahun: { type: VARCHAR, size: '9' }
+  tk_transkrip:
+    _attributes: { phpName: Transkrip }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    kode_mk: { type: VARCHAR, size: '10', required: true, primaryKey: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    semester: { type: VARCHAR, size: '5', primaryKey: true }
+    tahun: { type: VARCHAR, size: '9', primaryKey: true }
+    nilai: { type: VARCHAR, size: '3' }
+    state: { type: INTEGER }
+  tk_transkrip_asli:
+    _attributes: { phpName: TranskripAsli }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    kode_mk: { type: VARCHAR, size: '10', required: true, primaryKey: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    semester: { type: VARCHAR, size: '5', primaryKey: true }
+    tahun: { type: VARCHAR, size: '9', primaryKey: true }
+    nilai: { type: VARCHAR, size: '3' }
+  karyawan:
+    _attributes: { phpName: Karyawan }
+    kode_karyawan: { type: VARCHAR, size: '8', required: true, primaryKey: true }
+    nama: { type: VARCHAR, size: '100' }
+    kode_jur: { type: VARCHAR, size: '5', foreignTable: tk_jurusan, foreignReference: kode_jur, onDelete: restrict }
+    is_pengawas: { type: BOOLEAN, default: true }
+
+  tahun_semester:
+    kode: { type: VARCHAR, size: '5', required: true, primaryKey: true }
+    semester: { type: VARCHAR, size: '5', required: true }
+    tahun: { type: VARCHAR, size: '9', required: true }
+    is_aktif: { type: BOOLEAN, default: 0, required: true }
+
+
+
+
+  tk_minat_mk:
+    _attributes: { phpName: MinatMataKuliah }
+    nrp: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_mhs, foreignReference: nrp, onDelete: restrict }
+    kode_mk: { type: VARCHAR, size: '10', required: true, primaryKey: true, foreignTable: tk_master_mk, foreignReference: kode_mk, onDelete: restrict }
+    angkatan: { type: INTEGER, default: '0' }
+  dosen_non_jaga:
+    _attributes: { phpName: DosenNonJaga, description: 'Dosen Yang Tidak Jaga Ujian' }
+    kode_dosen: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: tk_dosen, foreignReference: kode_dosen, onDelete: restrict }
+    mulai_minggu: { type: INTEGER, required: true, default: 1}
+    mulai_hari: { type: INTEGER, required: true, default: 1}
+    sampai_minggu: { type: INTEGER, required: true, default: 2}
+    sampai_hari: { type: INTEGER, required: true, default: 5}
+  karyawan_non_jaga:
+    _attributes: { phpName: KaryawanNonJaga, description: 'Karyawan Yang Tidak Jaga Ujian' }
+    kode_karyawan: { type: VARCHAR, size: '8', required: true, primaryKey: true, foreignTable: karyawan, foreignReference: kode_karyawan, onDelete: restrict }
+    mulai_minggu: { type: INTEGER, required: true, default: 1}
+    mulai_hari: { type: INTEGER, required: true, default: 1}
+    sampai_minggu: { type: INTEGER, required: true, default: 2}
+    sampai_hari: { type: INTEGER, required: true, default: 5}
+  ruang_non_ujian:
+    _attributes: { phpName: RuangNonUjian, description: 'Ruang Yang Tidak Dipakai Untuk Ujian' }
+    kode_ruang: { type: VARCHAR, size: '10', required: true, primaryKey: true, foreignTable: tk_ruang, foreignReference: kode_ruang, onDelete: restrict }
+    mulai_minggu: { type: INTEGER, required: true, default: 1}
+    mulai_hari: { type: INTEGER, required: true, default: 1}
+    sampai_minggu: { type: INTEGER, required: true, default: 2}
+    sampai_hari: { type: INTEGER, required: true, default: 5}
+     
+  jadwal_ruang:
+    _attributes: { phpName: JadwalRuang }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    kode_ruang: { type: VARCHAR, size: '10', required: true,  foreignTable: tk_ruang, foreignReference: kode_ruang, onDelete: restrict }
+    hari: { type: INTEGER, default: '0' }
+    jam: { type: INTEGER, default: '0' }
+    minggu: { type: INTEGER, default: '0' }
+    semester: { type: VARCHAR, size: '5' }
+    kode_karyawan: { type: VARCHAR, size: '8',     foreignTable: karyawan, foreignReference: kode_karyawan, onDelete: restrict }
+    kode_dosen: { type: VARCHAR, size: '8',     foreignTable: tk_dosen, foreignReference: kode_dosen, onDelete: restrict }
+    _indexes:
+      jad_rua_mhj: [minggu, hari, jam]
+      jad_rua_min: [minggu]
+      jad_rua_jam: [jam]
+      jad_rua_har: [hari]
+  jadwal_ruang_mk:
+    _attributes: { phpName: JadwalRuangMk }
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    jadwal_ruang_id: { type: INTEGER, required: true,  foreignTable: jadwal_ruang, foreignReference: id, onDelete: restrict }
+    kode_kelas: { type: VARCHAR, size: '20', required: true,   foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    kapasitas: { type: INTEGER, default: '20' }
+    kp: { type: VARCHAR, size: '2', default: '-' }
+    nrp_awal: { type: VARCHAR, size: '8', required: false  }
+    nrp_akhir: { type: VARCHAR, size: '8', required: false  }
+    
+    uts_mahasiswa_terdaftar: { type: INTEGER, default: '0' } 
+    uts_mahasiswa_hadir: { type: INTEGER, default: '0' }
+    uts_tanggal: { type: DATE }
+    uts_jam_ke : { type: INTEGER, default: '1' }
+    uts_jumlah_menit : { type: INTEGER, default: '120' }
+    uts_jenis_soal: { type: VARCHAR, size: '8', required: false, default:'Esai'}
+    uts_kejadian_penting: { type: VARCHAR, size: '255', required: false  }
+    uts_dosen_jaga: { type: VARCHAR, size: '8', required: false  }
+    uts_karyawan_jaga: { type: VARCHAR, size: '8', required: false  }
+    uas_mahasiswa_terdaftar: { type: INTEGER, default: '0' } 
+    uas_mahasiswa_hadir: { type: INTEGER, default: '0' } 
+    uas_tanggal: { type: DATE } 
+    uas_jam_ke: { type: INTEGER, default: '1' } 
+    uas_jumlah_menit: { type: INTEGER, default: '120' } 
+    uas_jenis_soal: { type: VARCHAR, size: '8', required: false, default:'Esai'}
+    uas_kejadian_penting: { type: VARCHAR, size: '255', required: false  }
+    uas_dosen_jaga: { type: VARCHAR, size: '8', required: false  }
+    uas_karyawan_jaga: { type: VARCHAR, size: '8', required: false  }
+    
+  setting_ujian:
+    kode: { type: VARCHAR, size: '5', required: true, primaryKey: true }
+    awal_uts: { type: DATE }
+    awal_uas: { type: DATE }
+    
+  piket_ujian:
+    _attributes: { phpName: PiketUjian, description: 'Jadwal Petugas Piket Ujian' }     
+    minggu: { type: INTEGER, required: true, default: 1, primaryKey: true}
+    hari: { type: INTEGER, required: true, default: 1, primaryKey: true}
+    kode_dosen: { type: VARCHAR, size: '8',     foreignTable: tk_dosen, foreignReference: kode_dosen, onDelete: restrict }
+    
+     
+  soal_ujian:
+    id: { type: INTEGER, required: true, primaryKey: true, autoincrement: true, description: ID }
+    kode_kelas: { type: VARCHAR, size: '20', required: true,   foreignTable: tk_kelas_mk, foreignReference: kode_kelas, onDelete: restrict }
+    jenis_ujian: { type: VARCHAR, size: '3', default: 'UTS' }
+    kode_dosen: { type: VARCHAR, size: '8',     foreignTable: tk_dosen, foreignReference: kode_dosen, onDelete: restrict }
+    is_pembuat: { type: BOOLEAN }
+    is_koreksi: { type: BOOLEAN }   
+

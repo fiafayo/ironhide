@@ -1,0 +1,32 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           KelasMK
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              KelasMK
+    plural:                KelasMKs
+    route_prefix:          kelas_mk
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        kode_mk:
+          params:
+            peer_method: doOrderByName
+        tk_master_mk:
+          params:
+            peer_method: doOrderByName
+      list:
+        peer_method: doSelectThisSemester
+        peer_count_method: doCountThisSemester
+        batch_actions: { }
+        display: [ kode_kelas, kode_mk, kp, status_buka, kapasitas, isi, dmb ]
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

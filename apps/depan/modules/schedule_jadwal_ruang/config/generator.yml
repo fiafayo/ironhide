@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           JadwalRuang
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              jadwal_ruang
+    plural:                jadwal_ruangs
+    route_prefix:          jadwal_ruang_schedule_jadwal_ruang
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

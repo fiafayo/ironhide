@@ -1,0 +1,10 @@
+<?
+	session_start();
+	session_destroy();
+	session_unregister("mhs_id");
+	session_unregister("dsn_id");
+	session_unregister("admin_id");
+	session_unregister("paj_id");
+	session_unregister("kls_fpp");
+	header("Location:index.php");
+?>
